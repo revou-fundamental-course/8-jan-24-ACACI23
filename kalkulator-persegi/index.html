@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Standard Square Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f4f4f4 0%, #d4d4d4 100%);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+        .contoh {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-right: 3px solid rgba(255, 255, 255, 0.5); 
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5); 
+        }
+        .as {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 8px;
+            color: #333;
+        }
+        .glass-button {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 0;
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(30px);
+            color: #333;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .glass-button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="header text-dark text-center">
+        <p class="text-2xl font-semibold py-5">Kalkulator Persegi</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center justify-center">
+        <div class="contoh mt-4 flex items-center">
+            <img src="persegi.webp" class="mx-auto max-h-48" alt="Square Image">
+            <div class="md:ml-8 mt-4 ml-2 md:mt-0">
+                <h5 class="text-center">Rumus Luas persegi:</h5>
+                <p class="text-center">L = SxS</p>
+                <h5 class="text-center">Rumus Keliling Persegi</h5>
+                <p class="text-center">K = S+S+S+S</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="as text-dark text-center">
+        <p class="font-semibold py-2">Calculate Now</p>
+    </div>
+    <div class="w-full text-center">
+        <label for="s" class="block mt-4">Masukan SISI Persegi:</label>
+
+        <div class="flex items-center justify-center">
+            <input type="text" id="s" class="glass-input m-4 mb-2 w-1/4">
+            <button id="btnhitung" onclick="hitung()" class="glass-button">Hitung</button>
+        </div>
+
+        <p class="mt-4 block">Luas: <span id="luas"></span></p>
+        <p class="mt-4 mb-4 block">Keliling: <span id="kel"></span></p>
+    </div>
+
+    <script>
+        function hitung() {
+            var sisi = parseFloat(document.getElementById('s').value);
+            var luas = Math.pow(sisi, 2);
+            var keliling = 4 * sisi;
+
+            document.getElementById('luas').textContent = luas.toFixed(2);
+            document.getElementById('kel').textContent = keliling.toFixed(2);
+        }
+    </script>
+</body>
+</html>
